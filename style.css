@@ -50,6 +50,7 @@ body {
     font-size: 1.0625rem;
     line-height: 1.6;
 }
+
 header::after {
     content: "";
     position: absolute;
@@ -276,36 +277,4 @@ h1::before {
     letter-spacing: 0.15em;
     padding: 0.4em 0.5em 0.4em 0.65em;
     color: #fff;
-    background: color-mix(in srgb, var(--night) 65%, transparent);
-    border: 2px solid var(--cyan);
-    border-radius: 4px;
-    text-shadow:
-        0 0 4px #fff,
-        0 0 10px var(--cyan);
-    box-shadow:
-        0 0 10px var(--cyan),
-        inset 0 0 8px color-mix(in srgb, var(--cyan) 60%, transparent);
-}
-
-h1 {
-    font-size: clamp(4rem, 13vw, 5rem);
-    margin: 0.25em 0;
-}
-
-.name-first {
-    color: #fff;
-    text-shadow:
-        0 0 4px #fff,
-        0 0 12px var(--pink),
-        0 0 18px var(--pink),
-        0 0 48px var(--pink);
-}
-
-.name-last {
-    color: #fff;
-    text-shadow:
-        0 0 4px #fff,
-        0 0 12px var(--cyan),
-        0 0 28px var(--cyan),
-        0 0 48px var(--cyan);
-}
+    background: color-mix(in srgb, var(--night) 
