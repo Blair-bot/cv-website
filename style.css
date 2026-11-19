@@ -277,4 +277,234 @@ h1::before {
     letter-spacing: 0.15em;
     padding: 0.4em 0.5em 0.4em 0.65em;
     color: #fff;
-    background: color-mix(in srgb, var(--night) 
+    background: color-mix(in srgb, var(--night) 65%, transparent);
+    border: 2px solid var(--cyan);
+    border-radius: 4px;
+    text-shadow:
+        0 0 4px #fff,
+        0 0 10px var(--cyan);
+    box-shadow:
+        0 0 10px var(--cyan),
+        inset 0 0 8px color-mix(in srgb, var(--cyan) 60%, transparent);
+}
+
+h1 {
+    font-size: clamp(4rem, 13vw, 5rem);
+    margin: 0.25em 0;
+}
+
+.name-first {
+    color: #fff;
+    text-shadow:
+        0 0 4px #fff,
+        0 0 12px var(--pink),
+        0 0 18px var(--pink),
+        0 0 48px var(--pink);
+}
+
+.name-last {
+    color: #fff;
+    text-shadow:
+        0 0 4px #fff,
+        0 0 12px var(--cyan),
+        0 0 28px var(--cyan),
+        0 0 48px var(--cyan);
+}
+
+.intro-line {
+    color: var(--cyan);
+    text-shadow: 0 1px 6px var(--night);
+}
+
+.tagline {
+    font-size: 1.2rem;
+    max-width: 38ch;
+}
+
+.highlight {
+    color: var(--amber);
+    text-shadow: 0 0 10px color-mix(in srgb, var(--amber) 45%, transparent);
+}
+
+.location {
+    color: var(--muted);
+    text-shadow: 0 1px 8px var(--night), 0 0 2px var(--night);
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+}
+
+.chip {
+    padding: 0.3em 0.8em;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--night) 70%, transparent);
+    text-shadow: 0 0 8px currentColor;
+    box-shadow:
+        0 0 10px color-mix(in srgb, currentColor 40%, transparent),
+        inset 0 0 8px color-mix(in srgb, currentColor 25%, transparent);
+}
+
+.chip-pink {
+    color: var(--pink);
+}
+
+.chip-cyan {
+    color: var(--cyan);
+}
+
+.cursor {
+    animation: blink 1s steps(1, end) infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+section + section {
+    border-top: 1px solid var(--line);
+}
+
+h2 {
+    font-size: clamp(2rem, 6vw, 2.75rem);
+    margin: 0.3em 0 1em;
+    color: #fff;
+    text-shadow:
+        0 0 2px #fff,
+        0 0 14px color-mix(in srgb, var(--cyan) 60%, transparent);
+}
+
+.note {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+#about {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    column-gap: 3rem;
+    align-items: start;
+}
+
+#about > .section-label,
+#about > h2 {
+    grid-column: 1 / -1;
+}
+
+.about-text p {
+    margin: 0 0 1em;
+}
+
+.terminal {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px color-mix(in srgb, black 50%, transparent);
+}
+
+.terminal-bar {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--pink);
+}
+
+.dot:nth-child(2) {
+    background: var(--amber);
+}
+
+.dot:nth-child(3) {
+    background: var(--cyan);
+}
+
+.terminal-body {
+    margin: 0;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.35rem;
+    line-height: 1.4;
+    color: var(--ink);
+    overflow-x: auto;
+}
+
+.role-panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.panel-cyan {
+    border-top: 3px solid var(--cyan);
+}
+
+.panel-pink {
+    border-top: 3px solid var(--pink);
+}
+
+.panel h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.panel-cyan li::marker {
+    color: var(--cyan);
+}
+
+.panel-pink li::marker {
+    color: var(--pink);
+}
+
+.panel li {
+    margin-bottom: 0.4em;
+}
+
+#how-i-work .note {
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 760px) {
+    h1::before {
+        top: 1.25rem;
+        font-size: 1rem;
+        --sign-opacity: 0.6;
+    }
+
+    .location::after {
+        display: none;
+    }
+
+    #about {
+        grid-template-columns: 1fr;
+    }
+
+    .terminal-body {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+
+    .role-panels {
+        grid-template-columns: 1fr;
+    }
+}
