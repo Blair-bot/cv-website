@@ -1,12 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700&display=swap");
+
 :root {
-    --night: #0b0420;
-    --panel: #160a33;
-    --line: #3b2470;
-    --ink: #efe7ff;
-    --muted: #a99bd0;
-    --pink: #ff3ea5;
-    --cyan: #2de2e5;
-    --amber: #ffcf5c;
+    --night: #070b16;
+    --panel: #0e1528;
+    --line: #233256;
+    --ink: #e8eef9;
+    --muted: #93a3c2;
+    --pink: #ff4f9a;
+    --cyan: #39d5ff;
+    --amber: #ffb347;
+
+    --sky-top: #04060d;
+    --sky-mid: #0a1226;
+    --sky-bottom: #160f2a;
+
+    --building-far: #0c1430;
+    --building-near: #080d1f;
+    --window-amber: color-mix(in srgb, var(--amber) 75%, transparent);
+    --window-cyan: color-mix(in srgb, var(--cyan) 70%, transparent);
+    --window-pink: color-mix(in srgb, var(--pink) 70%, transparent);
+
+    --street-top: #0b1020;
+    --street-bottom: #05070e;
+
+    --lamp-post: #1c2747;
+    --lamp-core: color-mix(in srgb, var(--amber) 40%, white);
+    --lamp-glow: color-mix(in srgb, var(--amber) 55%, transparent);
+    --lamp-pool: color-mix(in srgb, var(--amber) 40%, transparent);
+
+    --rain-far: color-mix(in srgb, var(--ink) 18%, transparent);
+    --rain-near: color-mix(in srgb, var(--ink) 30%, transparent);
+
+    --font-jp: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+
+    color-scheme: dark;
 }
 
 *,
@@ -22,4 +49,263 @@ body {
     font-family: "Chakra Petch", system-ui, sans-serif;
     font-size: 1.0625rem;
     line-height: 1.6;
+}
+header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -30%;
+    right: -30%;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 1.5px 22px, var(--rain-near), transparent) 0 0 / 90px 200px,
+        radial-gradient(ellipse 1px 16px, var(--rain-far), transparent) 50px 110px / 70px 170px,
+        radial-gradient(ellipse 1px 12px, var(--rain-far), transparent) 30px 60px / 50px 140px;
+    transform: skewX(-12deg);
+    animation: rain 0.7s linear infinite;
+}
+
+@keyframes rain {
+    from { background-position: 0 0,     50px 110px, 30px 60px; }
+    to   { background-position: 0 400px, 50px 280px, 30px 200px; }
+}
+
+h1, h2, h3 {
+    font-family: "Tilt Neon", sans-serif;
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.intro-line,
+.section-label,
+.chip,
+.tag,
+.timeline-date,
+.card-tech,
+.card-status,
+.badge,
+.terminal-body {
+    font-family: "VT323", monospace;
+    font-size: 1.25rem;
+    letter-spacing: 0.04em;
+}
+
+.section-label {
+    color: var(--cyan);
+    margin: 0;
+}
+
+section,
+footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 1.25rem;
+}
+
+header {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 90vh;
+    padding-block: 5rem 23rem;
+    padding-inline: max(1.25rem, calc((100% - 1100px) / 2));
+    background:
+        radial-gradient(ellipse 45% 55% at 85% 100%, color-mix(in srgb, var(--pink) 28%, transparent), transparent 70%),
+        radial-gradient(ellipse 45% 55% at 10% 100%, color-mix(in srgb, var(--cyan) 22%, transparent), transparent 70%),
+        linear-gradient(to bottom, var(--sky-top), var(--sky-mid) 50%, var(--sky-bottom));
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 90px;
+    height: 260px;
+    z-index: -1;
+    background:
+        repeating-linear-gradient(to bottom, var(--window-amber) 0 4px, transparent 4px 18px) 3% calc(100% - 14px) / 4px 80px no-repeat,
+        repeating-linear-gradient(to bottom, var(--window-amber) 0 4px, transparent 4px 18px) 16% calc(100% - 14px) / 4px 110px no-repeat,
+        repeating-linear-gradient(to bottom, var(--window-cyan) 0 4px, transparent 4px 18px) 19% calc(100% - 32px) / 4px 72px no-repeat,
+        repeating-linear-gradient(to bottom, var(--window-amber) 0 4px, transparent 4px 18px) 31% calc(100% - 14px) / 4px 72px no-repeat,
+        repeating-linear-gradient(to bottom, var(--window-pink) 0 4px, transparent 4px 18px) 44% calc(100% - 14px) / 4px 100px no-repeat,
+        repeating-linear-gradient(to bottom, var(--window-amber) 0 4px, transparent 4px 18px) 57% calc(100% - 32px) / 4px 72px no-repeat,
+        repeating-linear-gradient(to bottom, var(--window-amber) 0 4px, transparent 4px 18px) 62% calc(100% - 14px) / 4px 90px no-repeat,
+        repeating-linear-gradient(to bottom, var(--window-amber) 0 4px, transparent 4px 18px) 73% calc(100% - 14px) / 4px 126px no-repeat,
+        repeating-linear-gradient(to bottom, var(--window-cyan) 0 4px, transparent 4px 18px) 86% calc(100% - 14px) / 4px 90px no-repeat,
+        repeating-linear-gradient(to bottom, var(--window-amber) 0 4px, transparent 4px 18px) 97% calc(100% - 32px) / 4px 54px no-repeat,
+
+        linear-gradient(var(--building-near), var(--building-near)) 0% 100% / 10% 120px no-repeat,
+        linear-gradient(var(--building-near), var(--building-near)) 14% 100% / 8% 150px no-repeat,
+        linear-gradient(var(--building-near), var(--building-near)) 28% 100% / 11% 110px no-repeat,
+        linear-gradient(var(--building-near), var(--building-near)) 45% 100% / 9% 140px no-repeat,
+        linear-gradient(var(--building-near), var(--building-near)) 60% 100% / 12% 120px no-repeat,
+        linear-gradient(var(--building-near), var(--building-near)) 75% 100% / 8% 160px no-repeat,
+        linear-gradient(var(--building-near), var(--building-near)) 90% 100% / 10% 130px no-repeat,
+        linear-gradient(var(--building-near), var(--building-near)) 100% 100% / 6% 100px no-repeat,
+
+        linear-gradient(var(--building-far), var(--building-far)) 2% 100% / 7% 190px no-repeat,
+        linear-gradient(var(--building-far), var(--building-far)) 12% 100% / 6% 230px no-repeat,
+        linear-gradient(var(--building-far), var(--building-far)) 24% 100% / 8% 170px no-repeat,
+        linear-gradient(var(--building-far), var(--building-far)) 38% 100% / 5% 250px no-repeat,
+        linear-gradient(var(--building-far), var(--building-far)) 52% 100% / 9% 200px no-repeat,
+        linear-gradient(var(--building-far), var(--building-far)) 66% 100% / 6% 240px no-repeat,
+        linear-gradient(var(--building-far), var(--building-far)) 80% 100% / 8% 180px no-repeat,
+        linear-gradient(var(--building-far), var(--building-far)) 95% 100% / 7% 220px no-repeat;
+}
+
+.tagline::before,
+.tagline::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    height: 3px;
+    border-radius: 2px;
+}
+
+.tagline::before {
+    left: 70%;
+    width: 6%;
+    bottom: 250px;
+    background: var(--pink);
+    box-shadow: 0 0 6px var(--pink), 0 0 16px var(--pink);
+}
+
+.tagline::after {
+    left: 36.6%;
+    width: 4%;
+    bottom: 340px;
+    background: var(--cyan);
+    box-shadow: 0 0 6px var(--cyan), 0 0 16px var(--cyan);
+}
+
+.intro-line::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 80px;
+    height: 110px;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 50% 28px, var(--lamp-core) 0 3px, var(--lamp-glow) 4px, transparent 26px) 0 0 / 240px 100% repeat-x,
+        linear-gradient(to right, transparent 119px, var(--lamp-post) 119px 122px, transparent 122px) 0 31px / 240px 100% repeat-x;
+}
+
+.chips::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 90px;
+    z-index: -1;
+    background:
+        radial-gradient(ellipse 40px 30px at 50% 8px, var(--lamp-pool), transparent) 0 0 / 240px 100% repeat-x,
+        repeating-linear-gradient(to right,
+            transparent 0 40px,
+            var(--window-pink) 40px 46px,
+            transparent 46px 110px,
+            var(--window-cyan) 110px 114px,
+            transparent 114px 170px,
+            var(--window-amber) 170px 176px,
+            transparent 176px 240px),
+        linear-gradient(to bottom, var(--street-top), var(--street-bottom));
+    filter: blur(5px);
+    -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent);
+    mask-image: linear-gradient(to bottom, black 20%, transparent);
+    transform-origin: top;
+    animation: shimmer 4s ease-in-out infinite alternate;
+}
+
+@keyframes shimmer {
+    from { opacity: 0.7; transform: scaleY(1); }
+    to   { opacity: 1;   transform: scaleY(1.06); }
+}
+
+h1::before {
+    content: "ブレア・フィン";
+    content: "ブレア・フィン" / "";
+    position: absolute;
+    top: 4rem;
+    right: max(1.25rem, calc((100% - 1100px) / 2));
+    writing-mode: vertical-rl;
+    font-family: var(--font-jp);
+    font-weight: 700;
+    font-size: 1.75rem;
+    line-height: 1;
+    letter-spacing: 0.25em;
+    padding: 0.6em 0.35em 0.35em;
+    color: #fff;
+    background: color-mix(in srgb, var(--night) 65%, transparent);
+    border: 2px solid var(--pink);
+    border-radius: 6px;
+    text-shadow:
+        0 0 4px #fff,
+        0 0 10px var(--pink),
+        0 0 22px var(--pink);
+    box-shadow:
+        0 0 12px var(--pink),
+        0 0 32px color-mix(in srgb, var(--pink) 50%, transparent),
+        inset 0 0 12px color-mix(in srgb, var(--pink) 60%, transparent);
+    --sign-opacity: 1;
+    opacity: var(--sign-opacity);
+    animation: sign-flicker 7s steps(1, end) infinite;
+}
+
+@keyframes sign-flicker {
+    0%   { opacity: var(--sign-opacity); }
+    90%  { opacity: calc(var(--sign-opacity) * 0.45); }
+    91%  { opacity: var(--sign-opacity); }
+    93%  { opacity: calc(var(--sign-opacity) * 0.6); }
+    94%  { opacity: var(--sign-opacity); }
+}
+
+.location::after {
+    content: "営業中";
+    content: "営業中" / "";
+    position: absolute;
+    bottom: 380px;
+    left: 58%;
+    font-family: var(--font-jp);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+    letter-spacing: 0.15em;
+    padding: 0.4em 0.5em 0.4em 0.65em;
+    color: #fff;
+    background: color-mix(in srgb, var(--night) 65%, transparent);
+    border: 2px solid var(--cyan);
+    border-radius: 4px;
+    text-shadow:
+        0 0 4px #fff,
+        0 0 10px var(--cyan);
+    box-shadow:
+        0 0 10px var(--cyan),
+        inset 0 0 8px color-mix(in srgb, var(--cyan) 60%, transparent);
+}
+
+h1 {
+    font-size: clamp(4rem, 13vw, 5rem);
+    margin: 0.25em 0;
+}
+
+.name-first {
+    color: #fff;
+    text-shadow:
+        0 0 4px #fff,
+        0 0 12px var(--pink),
+        0 0 18px var(--pink),
+        0 0 48px var(--pink);
+}
+
+.name-last {
+    color: #fff;
+    text-shadow:
+        0 0 4px #fff,
+        0 0 12px var(--cyan),
+        0 0 28px var(--cyan),
+        0 0 48px var(--cyan);
 }
