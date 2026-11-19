@@ -1,0 +1,25 @@
+:root {
+    --night: #0b0420;
+    --panel: #160a33;
+    --line: #3b2470;
+    --ink: #efe7ff;
+    --muted: #a99bd0;
+    --pink: #ff3ea5;
+    --cyan: #2de2e5;
+    --amber: #ffcf5c;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--night);
+    color: var(--ink);
+    font-family: "Chakra Petch", system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+}
